@@ -1,5 +1,5 @@
 node default {
 }
-mode 'localhost.localdomain' {
+mod 'localhost.localdomain' {
   include role::master_server
 }
