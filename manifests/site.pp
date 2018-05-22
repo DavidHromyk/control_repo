@@ -7,6 +7,9 @@ node 'localhost.localdomain' {
     content => "Welcome to ${fqdn}\n",
   }
 }
+node 'minetest.puppet.vm' {
+  include role::server.jar
+}
 node /^web/ {
   include role::app_server
 }
