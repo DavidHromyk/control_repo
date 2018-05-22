@@ -1,5 +1,5 @@
 class minecraft (
-  $url = 'https://launcher.mojang.com/mc/game/1.12.2/server/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar,
+  $url = 'https://launcher.mojang.com/mc/game/1.12.2/server/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar',
   $install_dir = '/opt/minecraft'
  ){
  
@@ -20,7 +20,9 @@ class minecraft (
   }
   file {'/etc/systemd/system/minecraft.service':
     ensure => file,
-    source => 'puppet:///modules/minecraft/minecraft.service',
+    content => epp('minecraft/minecraft.service',{
+      install_dir => $install_dir
+    })
   }
   service {'minecraft':
     ensure => running,
