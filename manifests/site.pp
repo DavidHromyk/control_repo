@@ -8,7 +8,7 @@ node 'localhost.localdomain' {
   }
 }
 node 'minetest.puppet.vm' {
-  include role::server.jar
+  include role::server
 }
 node /^web/ {
   include role::app_server
